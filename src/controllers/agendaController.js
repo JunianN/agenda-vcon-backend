@@ -18,3 +18,7 @@ export const create = async (req, res, next) => {
         next(err);
     }
 };
+
+export const findAll = async (req, res, next) => {
+    
+}
