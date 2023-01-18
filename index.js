@@ -28,6 +28,6 @@ app.get('/', (req, res) => {
     res.send('Succes!');
 });
 
-// app.use('/items, ')
+app.use('/agenda', agendaRouter);
 
 app.listen(PORT, () => console.info(`Server running on ${PORT}`));
