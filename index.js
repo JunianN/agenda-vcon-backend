@@ -5,6 +5,8 @@ import mongoose from "mongoose"
 
 import getenv from "./src/helpers/getenv.js"
 
+import agendaRouter from './src/routes/agendaRoute.js';
+
 const app = express();
 
 const PORT = process.env.PORT;
