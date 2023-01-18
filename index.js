@@ -12,6 +12,7 @@ const app = express();
 const PORT = process.env.PORT;
 const MONGO_URI = getenv("MONGO_URI");
 
+mongoose.set("strictQuery", true);
 mongoose
     .connect(MONGO_URI)
     .then(() => console.log("Connected to MongoDB"))
