@@ -7,4 +7,7 @@ const router = express.Router();
 //Membuat agenda baru.
 router.post('/', controller.create);
 
+//Melihat semua agenda
+router.get('/', controller.findAll);
+
 export default router;
