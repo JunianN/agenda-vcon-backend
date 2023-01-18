@@ -2,9 +2,9 @@ import mongoose from "mongoose";
 import {
     httpNotFound,
     httpBadRequest,
-} from '../helpers/httpExceptionBuilder';
-import { successResponseBuilder } from "../helpers/responseBuilder";
-import Agenda from "../models/agendaModel";
+} from '../helpers/httpExceptionBuilder.js';
+import { successResponseBuilder } from "../helpers/responseBuilder.js";
+import Agenda from "../models/agendaModel.js";
 
 export const create = async (req, res, next) => {
     try {
