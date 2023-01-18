@@ -27,7 +27,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-    res.send('Succes!');
+    res.send('Connection Success!');
 });
 
 app.use('/agenda', agendaRouter);
