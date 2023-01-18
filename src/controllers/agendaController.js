@@ -19,6 +19,18 @@ export const create = async (req, res, next) => {
     }
 };
 
+// export const findById = async (req, res, next) => {
+//     try {
+//         const id = mongoose.Types.ObjectId(req.params.id);
+//         const book = await Agenda.findById()
+//     }
+// }
+
 export const findAll = async (req, res, next) => {
-    
-}
+    try {
+        const agenda = await Agenda.find({});
+        res.json(successResponseBuilder({agenda: agenda}));
+    } catch (err) {
+        next(err);
+    }
+};
