@@ -34,3 +34,16 @@ export const findAll = async (req, res, next) => {
         next(err);
     }
 };
+
+export const deleteById = async (req, res, next) => {
+    try {
+        const id = mongoose.Types.ObjectId(req.params.id);
+
+        const agenda = await Agenda.findOneAndDelete({_id: id});
+        if (!agenda) throw httpNotFound();
+
+        res.json(successResponseBuilder({deletedAgendaId: id}))
+    } catch (err) {
+        next(err);
+    }
+};
