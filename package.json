@@ -1,5 +1,5 @@
 {
-  "name": "kp-kominfo-be",
+  "name": "agenda-vcon-backend",
   "version": "1.0.0",
   "description": "Backend for kp in Kominfo",
   "main": "index.js",
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JunianN/kp-kominfo-be.git"
+    "url": "git+https://github.com/JunianN/agenda-vcon-backend.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/JunianN/kp-kominfo-be/issues"
+    "url": "https://github.com/JunianN/agenda-vcon-backend/issues"
   },
-  "homepage": "https://github.com/JunianN/kp-kominfo-be#readme",
+  "homepage": "https://github.com/JunianN/agenda-vcon-backend#readme",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
