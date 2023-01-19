@@ -47,3 +47,15 @@ export const deleteById = async (req, res, next) => {
         next(err);
     }
 };
+
+export const updateById = async (req, res, next) => {
+    try {
+        const id = mongoose.Types.ObjectId(req.params.id);
+        const agenda = await Agenda.findOneAndUpdate({_id: id}, req.body);
+        if (!agenda) throw httpNotFound();
+
+        res.json(successResponseBuilder({agenda: agenda}));
+    } catch (err) {
+        next(err);
+    }
+};
