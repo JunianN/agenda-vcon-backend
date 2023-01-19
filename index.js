@@ -21,16 +21,18 @@ mongoose
         console.error(err);
         process.exit(1);
     });
+    
+mongoose.connection.once('open', () => {
+    app.use(cors());
+    app.use(express.json());
+    app.use(express.urlencoded({extended: true}));
+    app.use(express.static('public'));
 
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({extended: true}));
-app.use(express.static('public'));
+    app.get('/', (req, res) => {
+        res.send('Connection Success!');
+    });
 
-app.get('/', (req, res) => {
-    res.send('Connection Success!');
+    app.use('/agenda', agendaRouter);
+
+    app.listen(PORT, () => console.info(`Server running on ${PORT}`));
 });
-
-app.use('/agenda', agendaRouter);
-
-app.listen(PORT, () => console.info(`Server running on ${PORT}`));
