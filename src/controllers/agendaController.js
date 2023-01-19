@@ -59,3 +59,14 @@ export const updateById = async (req, res, next) => {
         next(err);
     }
 };
+
+export const findById = async (req, res, next) => {
+    try {
+        const id = mongoose.Types.ObjectId(req.params.id);
+        const agenda = await Agenda.findById({_id: id}).exec();
+        if (!agenda) throw httpNotFound();
+        res.json(successResponseBuilder({agenda:agenda}));
+    } catch (err) {
+        next(err);
+    }
+};
