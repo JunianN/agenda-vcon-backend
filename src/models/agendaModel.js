@@ -26,9 +26,13 @@ const agendaSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
+        zoom: {
+            type:Boolean,
+            required: true,
+        },
         keterangan: {
             type: String,
-            required: true,
+            required: false,
         },
         suratPinjam: {
             type: Boolean,
