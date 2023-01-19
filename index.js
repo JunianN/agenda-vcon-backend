@@ -10,7 +10,7 @@ import agendaRouter from './src/routes/agendaRoute.js';
 const app = express();
 
 const PORT = process.env.PORT;
-const MONGO_URI = getenv("MONGO_URI");
+const MONGO_URI = getenv("MONGODB_URI");
 
 mongoose.set("strictQuery", true);
 mongoose
