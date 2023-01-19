@@ -10,4 +10,7 @@ router.post('/', controller.create);
 //Melihat semua agenda
 router.get('/', controller.findAll);
 
+//Menghapus agenda dengan id tertentu
+router.delete('/:id', controller.deleteById);
+
 export default router;
