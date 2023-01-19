@@ -16,4 +16,7 @@ router.delete('/:id', controller.deleteById);
 //mengubah agenda dengan id tertentu
 router.put('/:id', controller.updateById);
 
+//melihat agenda dengan id tertentu
+router.get('/:id', controller.findById);
+
 export default router;
