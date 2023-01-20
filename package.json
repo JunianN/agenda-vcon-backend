@@ -8,13 +8,14 @@
     "node": "14.x"
   },
   "scripts": {
+    "dev": "nodemon index.js",
     "start": "node index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JunianN/agenda-vcon-backend.git"
   },
-  "author": "",
+  "author": "Rizky JunianNugroho <Rizky.j.n@mail.ugm.ac.id>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/JunianN/agenda-vcon-backend/issues"
