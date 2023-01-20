@@ -7,7 +7,13 @@ const requestLogger = (req,res, next) => {
         '-' +
         String(current_date_time.getMonth() + 1).padStart(2, '0') +
         '-' +
-        String(current_date_time.getDate()).padStart(2, '0');
+        String(current_date_time.getDate()).padStart(2, '0') +
+        ' ' + 
+        String(current_date_time.getHours()).padStart(2, '0') +
+        ':' +
+        String(current_date_time.getMinutes()).padStart(2, '0') +
+        ':' +
+        String(current_date_time.getSeconds()).padStart(2, '0');
     const method = String(req.method).padEnd(8);
     const url = req.url;
 
