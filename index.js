@@ -1,9 +1,10 @@
-import process from "process"
-import express from "express"
-import cors from "cors"
-import mongoose from "mongoose"
+import process from "process";
+import express from "express";
+import cors from "cors";
+import mongoose from "mongoose";
 
-import getenv from "./src/helpers/getenv.js"
+import getenv from "./src/helpers/getenv.js";
+import requestLogger from "./src/middlewares/requestLogger.js";
 
 import agendaRouter from './src/routes/agendaRoute.js';
 
@@ -21,12 +22,14 @@ mongoose
         console.error(err);
         process.exit(1);
     });
-    
+
 mongoose.connection.once('open', () => {
     app.use(cors());
     app.use(express.json());
     app.use(express.urlencoded({extended: true}));
     app.use(express.static('public'));
+
+    app.use(requestLogger);
 
     app.get('/', (req, res) => {
         res.send('Connection Success!');
