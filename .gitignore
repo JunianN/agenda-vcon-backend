@@ -1,2 +1,9 @@
+# Logs
+logs
+*.log
+
+# Dotenv environment variables file
 .env
-/node_modules/
+
+# Dependency 
+node_modules/
