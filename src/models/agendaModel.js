@@ -15,7 +15,7 @@ const agendaSchema = new mongoose.Schema(
             required: true,
         },
         peserta: {
-            type: [String],
+            type: String,
             required: true,
         },
         topik: {
