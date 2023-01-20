@@ -7,6 +7,7 @@ import getenv from "./src/helpers/getenv.js";
 import requestLogger from "./src/middlewares/requestLogger.js";
 
 import agendaRouter from './src/routes/agendaRoute.js';
+import errorHandler from "./src/middlewares/errorHandler.js";
 
 const app = express();
 
@@ -36,6 +37,8 @@ mongoose.connection.once('open', () => {
     });
 
     app.use('/agenda', agendaRouter);
+
+    app.use(errorHandler);
 
     app.listen(PORT, () => console.info(`Server running on ${PORT}`));
 });
