@@ -2,12 +2,15 @@ import process from "process";
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
+import cookieParser from "cookie-parser";
+
 
 import getenv from "./src/helpers/getenv.js";
 import requestLogger from "./src/middlewares/requestLogger.js";
+import errorHandler from "./src/middlewares/errorHandler.js";
 
 import agendaRouter from './src/routes/agendaRoute.js';
-import errorHandler from "./src/middlewares/errorHandler.js";
+import authRouter from './src/routes/authRoute.js';
 
 const app = express();
 
@@ -26,6 +29,7 @@ mongoose
 
 mongoose.connection.once('open', () => {
     app.use(cors());
+    app.use(cookieParser());
     app.use(express.json());
     app.use(express.urlencoded({extended: true}));
     app.use(express.static('public'));
@@ -37,6 +41,7 @@ mongoose.connection.once('open', () => {
     });
 
     app.use('/agenda', agendaRouter);
+    app.use('/auth', authRouter);
 
     app.use(errorHandler);
 
