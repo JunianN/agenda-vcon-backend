@@ -12,19 +12,11 @@ export const authenticate = (req, res, next) => {
     if (!token)
         return res.status(401).json(errorResponseBuilder(httpUnauthorized()));
 
-    jwt.verify(token, TOKEN_SECRET, (err, user) => {
+    jwt.verify(token, TOKEN_SECRET, (err, admin) => {
         if (err)
             return res.status(401).json(errorResponseBuilder(httpUnauthorized()));
 
-        req.user = user;
+        req.admin = admin;
         next();
     });
-};
-
-export const authorizeAdmin = (req,res, next) => {
-    if (req.user.isAdmin) {
-        next();
-    } else {
-        return res.status(403).json(errorResponseBuilder(httpForbidden()));
-    }
 };
