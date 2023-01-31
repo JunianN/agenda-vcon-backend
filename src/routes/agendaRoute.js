@@ -11,12 +11,12 @@ router.get('/', controller.findAll);
 router.get('/:id', controller.findById);
 
 //Membuat agenda baru.
-router.post('/', controller.create);
+router.post('/', auth.authenticate, controller.create);
 
 //Menghapus agenda dengan id tertentu
-router.delete('/:id', controller.deleteById);
+router.delete('/:id', auth.authenticate, controller.deleteById);
 
 //mengubah agenda dengan id tertentu
-router.put('/:id', controller.updateById);
+router.put('/:id', auth.authenticate, controller.updateById);
 
 export default router;
